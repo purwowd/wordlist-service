@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7.2
+    container_name: wordlist_redis
+    ports:
+      - "6379:6379"
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+
+  web:
+    build: .
+    container_name: wordlist_web
+    depends_on: [redis]
+    ports: ["8000:8000"]
+    volumes:
+      - ./app/outputs:/app/app/outputs
+    command: >
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+
+  worker:
+    build: .
+    container_name: wordlist_worker
+    depends_on: [redis]
+    volumes:
+      - ./app/outputs:/app/app/outputs
+    command: >
+      celery -A worker.celery worker --loglevel=info
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}

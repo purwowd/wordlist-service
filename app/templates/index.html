@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Word-list Generator</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+<style>
+  body { max-width: 900px; margin: auto; }
+</style>
+</head>
+<body class="py-5">
+
+<h1 class="mb-4">Word-list Generator</h1>
+
+<form action="/start" method="post" class="row g-3">
+
+  <!-- word-list label -->
+  <div class="col-md-6">
+    <label class="form-label">Output label (file name)</label>
+    <input name="name_wordlist" class="form-control"
+           placeholder="starbucks_wordlist">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Names  (space separated)</label>
+    <input name="names" class="form-control"
+           placeholder="starbucks coffee shop" required>
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label">Year from</label>
+    <input name="year-from" class="form-control" placeholder="2022" required>
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label">Year to</label>
+    <input name="year-to" class="form-control" placeholder="2025" required>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Tags</label>
+    <input name="tags" class="form-control"
+           placeholder="#coffee @sbx">
+  </div>
+
+  <!-- influence buckets -->
+  <div class="col-md-6"><label class="form-label">Subconscious</label>
+    <input name="subconscious" class="form-control" placeholder="morning latte">
+  </div>
+  <div class="col-md-6"><label class="form-label">Temporal-spatial</label>
+    <input name="temporal-spatial" class="form-control" placeholder="7am rushhour">
+  </div>
+  <div class="col-md-6"><label class="form-label">Cultural identity</label>
+    <input name="cultural-identity" class="form-control" placeholder="seattle indonesia">
+  </div>
+  <div class="col-md-6"><label class="form-label">Digital rituals</label>
+    <input name="digital-rituals" class="form-control" placeholder="instagram mobileorder">
+  </div>
+  <div class="col-md-6"><label class="form-label">Psych weak-spots</label>
+    <input name="psych-weak-spots" class="form-control" placeholder="stress fomo">
+  </div>
+  <div class="col-md-6"><label class="form-label">Identity layering</label>
+    <input name="identity-layering" class="form-control" placeholder="barista gamer">
+  </div>
+
+  <!-- length / size / mangling -->
+  <div class="col-md-3">
+    <label class="form-label">Wi-Fi min</label>
+    <input name="wifi-min" class="form-control" placeholder="8" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Wi-Fi max</label>
+    <input name="wifi-max" class="form-control" placeholder="18" required>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Max MB</label>
+    <input name="max-size-mb" class="form-control" placeholder="5" required>
+  </div>
+  <div class="col-md-12">
+    <label class="form-label">Mangling list</label>
+    <input name="mangling" class="form-control"
+           placeholder="reverse upper title">
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-primary">Generate</button>
+  </div>
+</form>
+
+</body>
+</html>
